@@ -18,12 +18,4 @@ then
 
   start-worker.sh spark://spark-master:7077 --webui-port $WEBUI_PORT
 
-elif [ "$SPARK_WORKLOAD" == "history" ]
-then
-  start-history-server.sh
-
-elif [ "$SPARK_WORKLOAD" == "connect" ]
-then
-  start-connect-server.sh --driver-memory 512M --executor-memory 500M --executor-cores 1 --packages org.apache.spark:spark-connect_2.12:3.4.0
-
 fi
