@@ -1,0 +1,37 @@
+services:
+  spark-master:
+    environment:
+      - SPARK_CONF_DIR=/opt/spark/conf
+    container_name: spark-master
+    build:
+      context: .
+      target: pyspark
+    image: spark
+    entrypoint: ["/opt/spark/entrypoint.sh", 'master']
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080" ]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    volumes:
+      - ./data:/opt/spark/data
+      - ./spark_apps:/opt/spark/apps
+      - ./spark-events:/opt/spark/spark-events
+    env_file:
+      - .env.spark
+    ports:
+      - '4040:4040'
+      - '9090:8080'
+      - '7077:7077'
+
+  spark-worker:
+    image: spark
+    entrypoint: ["/opt/spark/entrypoint.sh", 'worker']
+    depends_on:
+      - spark-master
+    env_file:
+      - .env.spark
+    volumes:
+      - ./data:/opt/spark/data
+      - ./spark_apps:/opt/spark/apps
+      - ./output:/opt/spark/output
