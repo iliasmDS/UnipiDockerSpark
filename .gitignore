@@ -1,1 +1,5 @@
-spark-events/*
+spark-events/
+
+data/*
+
+just_python/data_in_binary/*

@@ -14,9 +14,11 @@ services:
       timeout: 3s
       retries: 3
     volumes:
+      - ./entrypoint.sh:/opt/spark/entrypoint.sh
       - ./data:/opt/spark/data
       - ./spark_apps:/opt/spark/apps
       - ./spark-events:/opt/spark/spark-events
+      - ./output:/opt/spark/output
     env_file:
       - .env.spark
     ports:
@@ -32,6 +34,7 @@ services:
     env_file:
       - .env.spark
     volumes:
+      - ./entrypoint.sh:/opt/spark/entrypoint.sh
       - ./data:/opt/spark/data
       - ./spark_apps:/opt/spark/apps
       - ./output:/opt/spark/output

@@ -1,0 +1,13 @@
+
+# Note: Those requirements are needed ONLY for the .ipynb files, for reading the results locally.
+
+pandas==2.2.2
+
+scikit-learn==1.4.2
+
+matplotlib==3.9.2
+
+seaborn==0.13.2
+
+parquet
+
