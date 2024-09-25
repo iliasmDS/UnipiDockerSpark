@@ -62,7 +62,7 @@ df_q = vectorize(df_q)
 
 ##################################################################
 
-brp = BucketedRandomProjectionLSH(inputCol='vectors', numHashTables = 5, bucketLength = 5)
+brp = BucketedRandomProjectionLSH(inputCol='vectors', numHashTables = 20, bucketLength = 5)
 
 model = brp.fit(df)
 

@@ -33,7 +33,7 @@
 
    This command makes the spark-submit as the master node.
    Submitting the "SPARK.py" file.
-   The 4 (first argument) changes the drivers RAM, while the 5 (second argument) changes its cores.
+   The 4 (first argument) changes the executors RAM, while the 5 (second argument) changes their cores.
 
 [Access Spark Web UI]:
 
