@@ -39,12 +39,18 @@
 
     - http://localhost:9090/
 
+    (note: spark web UI is not setup properly to show executor RAM-core usage)
+
 [Running additionals (python code)]:
 
     <1> pip install -r just_python\requirements.txt
 
-    <2> docker exec spark-master spark-submit --master spark://spark-master:7077 apps/TEST.py
+    <2> Run All: BRUTE_FORCE.ipynb
 
-    <3> Run All: BRUTE_FORCE.ipynb
+    <needed for 3> docker exec spark-master spark-submit --master spark://spark-master:7077 apps/TEST.py
 
-    <4> Run All: READ_RESULTS.ipynb
+    <needed for 3> docker exec spark-master spark-submit --master spark://spark-master:7077 apps/SPARK_ANN.py 6 4
+
+    <needed for 3> docker exec spark-master spark-submit --master spark://spark-master:7077 apps/SPARK_ASJ.py 6 4
+
+    <3> Run All: READ_RESULTS.ipynb
